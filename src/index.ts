@@ -14,15 +14,24 @@ const env = process.env.APP_ENV;
 
 const app = express();
 
-app.use(cors);
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
+);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.status(200).json({
+    status: 'Server is working',
+  });
 });
 
-app.listen(env, () => {
+app.listen(port, () => {
   console.log(`Example app listening on port ${port} in ${env} mode`);
 });

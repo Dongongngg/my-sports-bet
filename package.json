@@ -8,8 +8,8 @@
   },
   "scripts": {
     "build": "rimraf dist && tsc",
-    "dev": "SET APP_ENV=development&& yarn build&& nodemon -q dist/index.js",
-    "start": "node dist/index.js",
+    "dev:win": "SET APP_ENV=development&& yarn build&& nodemon dist/index.js",
+    "start": "APP_ENV=production node dist/index.js",
     "lint": "eslint --fix"
   },
   "repository": {
