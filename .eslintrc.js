@@ -1,0 +1,33 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+  ],
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  ignorePatterns: ['.eslintrc.js'],
+  env: {
+    es6: true,
+    node: true,
+  },
+  rules: {
+    'no-var': 'error',
+    semi: 'error',
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'no-multi-spaces': 'error',
+    'space-in-parens': 'error',
+    'no-multiple-empty-lines': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+  },
+};
